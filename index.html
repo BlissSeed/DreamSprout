@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dream Sprout Fund</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink:#1a2e1a;
+  --ink-mid:#3d5c3a;
+  --ink-soft:#7a9c76;
+  --cream:#f8f6f0;
+  --cream-2:#f0ece2;
+  --sage:#6b8f71;
+  --sage-lt:#ddeadf;
+  --green-dk:#1e4d35;
+  --green-mid:#2d6a4f;
+  --gold:#c4962a;
+  --gold-lt:#f5e9cc;
+  --white:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Serif JP',Georgia,serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.8}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sproutGrow{0%{transform:scaleY(0);transform-origin:bottom}100%{transform:scaleY(1);transform-origin:bottom}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+
+.shimmer{background:linear-gradient(90deg,#1e4d35,#4a9060,#7ec88a,#4a9060,#1e4d35);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 8s linear infinite;display:inline-block}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;mix-blend-mode:multiply}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--green-dk);text-decoration:none;font-weight:600}
+.nav-back{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.18em;color:var(--ink-mid);text-decoration:none;text-transform:uppercase;opacity:.7;transition:opacity .2s}
+.nav-back:hover{opacity:1}
+.nav-back::before{content:"← "}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px 80px;position:relative;overflow:hidden;background:linear-gradient(175deg,#f0ece2 0%,#e8f0e4 50%,#dde8d8 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(110,160,100,.08),transparent 70%)}
+
+/* Sprout illustration */
+.sprout-wrap{margin-bottom:48px;animation:fadeUp .8s ease .1s both}
+.sprout-svg{width:64px;height:auto;opacity:.85}
+
+.hero-eyebrow{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage);margin-bottom:24px;animation:fadeUp .8s ease .2s both}
+.hero h1{font-family:'Noto Serif JP',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;line-height:1.3;letter-spacing:.03em;color:var(--ink);margin-bottom:32px;animation:fadeUp .9s ease .3s both}
+.hero-question{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2vw,1.35rem);color:var(--ink-mid);max-width:600px;line-height:1.9;animation:fadeUp .9s ease .45s both}
+.hero-line{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--sage),transparent);margin:48px auto;animation:fadeUp .9s ease .55s both}
+
+/* VISION */
+.vision{padding:120px 48px;text-align:center;background:var(--white);position:relative}
+.vision::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(107,143,113,.3),transparent)}
+.vision-label{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:28px}
+.vision-text{font-family:'Noto Serif JP',serif;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:500;line-height:1.8;color:var(--ink);max-width:680px;margin:0 auto}
+.vision-text em{font-style:normal;color:var(--green-mid)}
+
+/* WHAT WE DO */
+.what{padding:120px 48px;background:var(--cream-2);position:relative}
+.what-inner{max-width:800px;margin:0 auto}
+.what-label{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:16px;text-align:center}
+.what h2{font-family:'Noto Serif JP',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--ink);text-align:center;margin-bottom:64px}
+.what-items{display:flex;flex-direction:column;gap:0}
+.what-item{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:36px 0;border-bottom:1px solid rgba(107,143,113,.15);align-items:start}
+.what-item:first-child{border-top:1px solid rgba(107,143,113,.15)}
+.what-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--sage);opacity:.4;line-height:1}
+.what-title{font-family:'Noto Serif JP',serif;font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.5}
+
+/* STRUCTURE */
+.structure{padding:96px 48px;text-align:center;background:var(--green-dk);position:relative;overflow:hidden}
+.structure::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(255,255,255,.04),transparent 70%)}
+.structure-label{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.4);display:block;margin-bottom:24px}
+.structure-text{font-family:'Noto Serif JP',serif;font-size:clamp(1rem,2vw,1.3rem);font-weight:400;color:rgba(255,255,255,.82);max-width:560px;margin:0 auto 20px;line-height:1.95}
+.structure-link{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.16em;color:rgba(255,255,255,.5);text-decoration:none;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s}
+.structure-link:hover{color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.5)}
+
+/* CLOSING */
+.closing{padding:160px 48px;text-align:center;background:var(--cream);position:relative}
+.closing-sprout{margin-bottom:40px}
+.closing h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;font-style:italic;color:var(--ink);margin-bottom:16px;letter-spacing:.04em}
+.coming-badge{display:inline-block;border:1px solid rgba(107,143,113,.4);color:var(--sage);font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:8px 24px;border-radius:1px;font-family:'Cormorant Garamond',serif;margin-top:16px}
+
+/* FOOTER */
+footer{padding:28px 48px;background:var(--ink);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.35);letter-spacing:.06em;font-family:'Cormorant Garamond',serif}
+.footer-link{font-size:.78rem;color:rgba(255,255,255,.35);text-decoration:none;letter-spacing:.1em;font-family:'Cormorant Garamond',serif;text-transform:uppercase;transition:color .2s}
+.footer-link:hover{color:rgba(255,255,255,.7)}
+
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .hero{padding:100px 24px 64px}
+  .vision,.what,.structure,.closing{padding:80px 24px}
+  footer{padding:24px;flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">Dream Sprout</a>
+  <a href="https://blissseed.co" target="_blank" class="nav-back">Bliss Seed</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="sprout-wrap">
+    <svg class="sprout-svg" viewBox="0 0 80 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- ground -->
+      <ellipse cx="40" cy="98" rx="18" ry="4" fill="#6b8f71" opacity=".15"/>
+      <!-- stem -->
+      <path d="M40 96 Q39 80 40 58" stroke="#4a7a50" stroke-width="2" stroke-linecap="round"/>
+      <!-- left leaf - ふっくら -->
+      <path d="M40 72 Q20 68 16 50 Q22 44 34 52 Q38 58 40 72Z" fill="#6b8f71"/>
+      <path d="M40 72 Q20 68 16 50 Q22 44 34 52 Q38 58 40 72Z" fill="none" stroke="#4a7a50" stroke-width=".5" opacity=".4"/>
+      <!-- right leaf - ふっくら -->
+      <path d="M40 64 Q60 60 64 42 Q58 36 46 44 Q42 50 40 64Z" fill="#4a9060"/>
+      <path d="M40 64 Q60 60 64 42 Q58 36 46 44 Q42 50 40 64Z" fill="none" stroke="#2d6a4f" stroke-width=".5" opacity=".4"/>
+      <!-- leaf veins -->
+      <path d="M40 70 Q28 62 20 52" stroke="white" stroke-width=".8" opacity=".3" stroke-linecap="round"/>
+      <path d="M40 62 Q52 55 60 45" stroke="white" stroke-width=".8" opacity=".3" stroke-linecap="round"/>
+      <!-- tip bud -->
+      <ellipse cx="40" cy="54" rx="4" ry="6" fill="#2d6a4f"/>
+      <ellipse cx="40" cy="51" rx="2.5" ry="3.5" fill="#4a9060" opacity=".8"/>
+
+      <!-- sparkles ✨ -->
+      <!-- star 1 - top right big -->
+      <g transform="translate(62,28)" opacity=".9">
+        <path d="M0,-7 L1.5,-1.5 L7,0 L1.5,1.5 L0,7 L-1.5,1.5 L-7,0 L-1.5,-1.5 Z" fill="#c4962a"/>
+      </g>
+      <!-- star 2 - left small -->
+      <g transform="translate(14,40)" opacity=".7">
+        <path d="M0,-4.5 L1,-.8 L4.5,0 L1,.8 L0,4.5 L-1,.8 L-4.5,0 L-1,-.8 Z" fill="#c4962a"/>
+      </g>
+      <!-- star 3 - top left tiny -->
+      <g transform="translate(22,18)" opacity=".6">
+        <path d="M0,-3 L.6,-.6 L3,0 L.6,.6 L0,3 L-.6,.6 L-3,0 L-.6,-.6 Z" fill="#e8b840"/>
+      </g>
+      <!-- star 4 - right tiny -->
+      <g transform="translate(68,52)" opacity=".5">
+        <path d="M0,-2.5 L.5,-.5 L2.5,0 L.5,.5 L0,2.5 L-.5,.5 L-2.5,0 L-.5,-.5 Z" fill="#c4962a"/>
+      </g>
+      <!-- dot sparkles -->
+      <circle cx="55" cy="22" r="1.5" fill="#e8b840" opacity=".7"/>
+      <circle cx="18" cy="56" r="1" fill="#c4962a" opacity=".5"/>
+      <circle cx="70" cy="36" r="1" fill="#e8b840" opacity=".4"/>
+    </svg>
+  </div>
+  <div class="hero-eyebrow">Dream Sprout</div>
+  <h1><span class="shimmer">大人になるのが<br>楽しみな世界をつくる</span></h1>
+</section>
+
+<!-- VISION -->
+<section class="vision">
+  <span class="vision-label">Vision</span>
+  <p class="vision-text" style="font-family:'Noto Serif JP',serif;font-size:clamp(.95rem,1.8vw,1.15rem);color:var(--ink-mid);margin-bottom:48px;font-weight:400">子どもに「大人になるのが楽しみ」と言ってもらえる生き方を、していますか？</p>
+  <p class="vision-text">
+    大人が自分らしく生きる姿が、<br>
+    子どもたちの<em>希望</em>になる。
+  </p>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="what">
+  <div class="what-inner">
+    <span class="what-label">What We Do</span>
+    <h2>私たちの活動</h2>
+    <div class="what-items">
+      <div class="what-item">
+        <div class="what-num">01</div>
+        <div class="what-title">キャリア探索ワークショップ</div>
+      </div>
+      <div class="what-item">
+        <div class="what-num">02</div>
+        <div class="what-title">マイクロ奨学金</div>
+      </div>
+      <div class="what-item">
+        <div class="what-num">03</div>
+        <div class="what-title">多様なキャリアとの出会いの機会</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section class="structure">
+  <span class="structure-label">Structure</span>
+  <p class="structure-text">
+    この活動はBliss Seedの収益によって支えられています。
+  </p>
+  <a href="https://blissseed.co" target="_blank" class="structure-link">About Bliss Seed →</a>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-sprout">
+    <svg width="48" height="56" viewBox="0 0 80 110" fill="none">
+      <path d="M40 96 Q39 80 40 58" stroke="#4a7a50" stroke-width="2" stroke-linecap="round"/>
+      <path d="M40 72 Q20 68 16 50 Q22 44 34 52 Q38 58 40 72Z" fill="#6b8f71" opacity=".8"/>
+      <path d="M40 64 Q60 60 64 42 Q58 36 46 44 Q42 50 40 64Z" fill="#4a9060" opacity=".9"/>
+      <ellipse cx="40" cy="54" rx="4" ry="6" fill="#2d6a4f"/>
+      <g transform="translate(62,28)" opacity=".8"><path d="M0,-6 L1.2,-1.2 L6,0 L1.2,1.2 L0,6 L-1.2,1.2 L-6,0 L-1.2,-1.2 Z" fill="#c4962a"/></g>
+      <g transform="translate(16,38)" opacity=".6"><path d="M0,-3.5 L.7,-.7 L3.5,0 L.7,.7 L0,3.5 L-.7,.7 L-3.5,0 L-.7,-.7 Z" fill="#e8b840"/></g>
+      <circle cx="54" cy="22" r="1.5" fill="#e8b840" opacity=".6"/>
+    </svg>
+  </div>
+  <h2>あなたの生き方が、<br>子どもの希望の種になる。</h2>
+  <div class="coming-badge">Coming Soon</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="width:100%;text-align:center;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:20px">
+    <p style="color:rgba(255,255,255,.45);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.04em;line-height:1.9">For my daughters,<br>who inspire me without even knowing it —<br>my reason, my light, my twinkle stars.</p>
+  </div>
+  <div style="width:100%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <span class="footer-copy">© 2026 Dream Sprout Fund. A Bliss Seed Vision Project.</span>
+    <a href="https://blissseed.co" target="_blank" class="footer-link">Bliss Seed</a>
+  </div>
+</footer>
+
+</body>
+</html>
