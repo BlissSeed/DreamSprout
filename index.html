@@ -70,11 +70,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:fl
 
 /* STRUCTURE */
 .structure{padding:96px 48px;text-align:center;background:var(--green-dk);position:relative;overflow:hidden}
-.structure::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(255,255,255,.04),transparent 70%)}
+.structure::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(255,255,255,.04),transparent 70%);pointer-events:none}
 .structure-label{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.4);display:block;margin-bottom:24px}
 .structure-text{font-family:'Noto Serif JP',serif;font-size:clamp(1rem,2vw,1.3rem);font-weight:400;color:rgba(255,255,255,.82);max-width:560px;margin:0 auto 20px;line-height:1.95}
-.structure-link{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.16em;color:rgba(255,255,255,.5);text-decoration:none;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s}
-.structure-link:hover{color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.5)}
+.structure-link{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.16em;color:#ffffff;text-decoration:underline;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.structure-link:hover{opacity:.7}
 
 /* CLOSING */
 .closing{padding:160px 48px;text-align:center;background:var(--cream);position:relative}
@@ -190,7 +190,7 @@ footer{padding:28px 48px;background:var(--ink);display:flex;align-items:center;j
   <p class="structure-text">
     この活動はBliss Seedの収益によって支えられています。
   </p>
-  <a href="https://blissseed.co" target="_blank" class="structure-link">About Bliss Seed →</a>
+  <a href="https://blissseed.co" target="_blank" style="display:inline-block;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.16em;color:#ffffff;text-decoration:underline;text-transform:uppercase;cursor:pointer;margin-top:8px">About Bliss Seed →</a>
 </section>
 
 <!-- CLOSING -->
